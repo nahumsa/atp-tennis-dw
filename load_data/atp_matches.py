@@ -1,6 +1,7 @@
 import dlt
 import requests
 import csv
+import time
 from datetime import datetime, timezone
 from typing import Iterator, Dict
 from io import StringIO
@@ -13,6 +14,9 @@ def atp_matches_data() -> Iterator[Dict]:
             f"https://raw.githubusercontent.com/JeffSackmann/tennis_atp/refs/heads/master/atp_matches_{year}.csv", allow_redirects=True
         )
 
+        # add sleep to avoid 429 Error
+        time.sleep(2)
+
         response.raise_for_status()
 
         data = csv.DictReader(StringIO(response.text))
@@ -20,6 +24,8 @@ def atp_matches_data() -> Iterator[Dict]:
 
         for record in data:
             yield dict(**record, **{"updated_at": updated_at})
+        # Change this to a logger
+        print(f"loaded year={year}")
 
 
 @dlt.source
