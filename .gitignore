@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# DBT Logs
+logs/
+
+# Duckdb local DB
+atp_matches_pipeline.duckdb

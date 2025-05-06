@@ -1,0 +1,110 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: Raw dataset ingested from the 11-Seven fuel price API and stored in DuckDB.
+    schema: raw_data
+    tables:
+      - name: atp_matches
+        description: Raw fuel price data including region, fuel type, and price details for each station.
+        columns:
+          - name: tourney_id
+            description: unique ID for the tournament
+          - name: tourney_name
+            description: name of the tournament
+          - name: surface
+            description: surface played
+          - name: draw_size
+            description: number of players in the draw, often rounded up to the nearest power of 2. (For instance, a tournament with 28 players may be shown as 32.)
+          - name: tourney_level
+            description: For men G = Grand Slams, M = Masters 1000s, A = other tour-level events, C = Challengers, S = Satellites/ITFs, F = Tour finals and other season-ending events, and D = Davis Cup  For women, there are several additional tourney_level codes, including P = Premier, PM = Premier Mandatory, and I = International. The various levels of ITFs are given by the prize money (in thousands), such as 15 = ITF $15,000. Other codes, such as T1 for Tier I (and so on) are used for older WTA tournament designations. D is used for Federation/Fed/Billie Jean King Cup, and also for Wightman Cup and Bonne Bell Cup.
+          - name: tourney_date
+            description: eight digits, YYYYMMDD, usually the Monday of the tournament week.
+          - name: match_num
+            description: a match-specific identifier. Often starting from 1, sometimes counting down from 300, and sometimes arbitrary.
+          - name: winner_id
+            description: the player_id used in this repo for the winner of the match
+          - name: winner_seed
+            description: Seed of the winning player
+          - name: winner_entry
+            description: WC = wild card, Q = qualifier, LL = lucky loser, PR = protected ranking, ITF = ITF entry, and there are a few others that are occasionally used.
+          - name: winner_name
+            description: name of the winning player
+          - name: winner_hand
+            description: R = right, L = left, U = unknown. For ambidextrous players, this is their serving hand.
+          - name: winner_ht
+            description: height in centimeters
+          - name: winner_ioc
+            description: three letter country code
+          - name: winner_age
+            description: age in year on the tournament date
+          - name: loser_id
+            description: the player_id used in this repo for the loser of the match
+          - name: loser_seed
+            description: Seed of the loosing player
+          - name: loser_entry
+            description: Seed of the loosing player
+          - name: loser_name
+            description: name of the loosing player
+          - name: loser_hand
+            description: R = right, L = left, U = unknown. For ambidextrous players, this is their serving hand.
+          - name: loser_ht
+            description: height in centimeters
+          - name: loser_ioc
+            description: three letter country code
+          - name: loser_age
+            description: age in year on the tournament date
+          - name: score
+            description: Score of the match
+          - name: best_of
+            description: number of sets played
+          - name: round
+            description: number of rounds
+          - name: minutes
+            description: match length, when available.
+          - name: w_ace
+            description: winners number of aces
+          - name: w_df
+            description: winners number of double faults
+          - name: w_svpt
+            description: winners number of serve points
+          - name: w_1st_in
+            description: winners number of first servers made
+          - name: w_1st_won
+            description: winners number of first-servers won
+          - name: w_2nd_won
+            description: winners number of second-servers won
+          - name: w_sv_gms
+            description: winners number of serve games
+          - name: w_bp_saved
+            description: winners number of break points saved
+          - name: w_bp_faced
+            description: winners number of break points faced
+          - name: l_ace
+            description: loosers number of aces
+          - name: l_df
+            description: loosers number of double faults
+          - name: l_svpt
+            description: loosers number of serve points
+          - name: l_1st_in
+            description: loosers number of first servers made
+          - name: l_1st_won
+            description: loosers number of first-servers won
+          - name: l_2nd_won
+            description: loosers number of second-servers won
+          - name: l_sv_gms
+            description: loosers number of serve games
+          - name: l_bp_saved
+            description: loosers number of break points saved
+          - name: l_bp_faced
+            description: loosers number of break points faced
+          - name: winner_rank
+            description: winners ATP or WTA rank, as of the tourney_date, or the most recent ranking date before the tourney_date
+          - name: winner_rank_points
+            description: number of ranking points, when available
+          - name: loser_rank
+            description: loosers ATP or WTA rank, as of the tourney_date, or the most recent ranking date before the tourney_date
+          - name: loser_rank_points
+            description: number of ranking points, when available
+          - name: updated_at
+            description: Timestamp when the record was last updated in the API.
