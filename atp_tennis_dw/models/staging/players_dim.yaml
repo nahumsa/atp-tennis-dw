@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: players_dim
+    description: Raw staging table extracted from the fuel price API.
+    columns:
+      - name: name
+        description: Name of the player
+        tests:
+          - unique
+      - name: id
+        description: Id of the player
+        tests:
+          - unique
+      - name: hand
+        description: R = right, L = left, U = unknown. For ambidextrous players, this is their serving hand.
+      - name: year_of_birth
+        description: year that the player was born
+      - name: height
+        description: height in centimeters
+      - name: ioc
+        description: three letter country code
