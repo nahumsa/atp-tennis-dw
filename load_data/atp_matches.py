@@ -10,12 +10,15 @@ from io import StringIO
 @dlt.resource(primary_key=("tourney_id", "match_num"), name="atp_matches", write_disposition="replace")
 def atp_matches_data() -> Iterator[Dict]:
     for year in range(2019, 2024 + 1):
+        # Change this to a logger
+        print(f"loading year={year}")
+
         response = requests.get(
             f"https://raw.githubusercontent.com/JeffSackmann/tennis_atp/refs/heads/master/atp_matches_{year}.csv", allow_redirects=True
         )
 
         # add sleep to avoid 429 Error
-        time.sleep(2)
+        time.sleep(5)
 
         response.raise_for_status()
 
@@ -24,8 +27,7 @@ def atp_matches_data() -> Iterator[Dict]:
 
         for record in data:
             yield dict(**record, **{"updated_at": updated_at, "year": year})
-        # Change this to a logger
-        print(f"loaded year={year}")
+
 
 
 @dlt.source
