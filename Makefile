@@ -7,7 +7,7 @@ YELLOW := \033[1;33m
 BLUE   := \033[1;34m
 NC     := \033[0m # No Color
 
-.PHONY: help
+.PHONY: help load_data dbt_run
 
 ## Show this help message
 help:

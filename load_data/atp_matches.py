@@ -23,7 +23,7 @@ def atp_matches_data() -> Iterator[Dict]:
         updated_at = datetime.now(timezone.utc)
 
         for record in data:
-            yield dict(**record, **{"updated_at": updated_at})
+            yield dict(**record, **{"updated_at": updated_at, "year": year})
         # Change this to a logger
         print(f"loaded year={year}")
 

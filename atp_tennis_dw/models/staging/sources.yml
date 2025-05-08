@@ -106,5 +106,7 @@ sources:
             description: loosers ATP or WTA rank, as of the tourney_date, or the most recent ranking date before the tourney_date
           - name: loser_rank_points
             description: number of ranking points, when available
+          - name: year
+            description: year that the match occured
           - name: updated_at
             description: Timestamp when the record was last updated in the API.
