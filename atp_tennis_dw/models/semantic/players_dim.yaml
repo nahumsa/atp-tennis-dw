@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: players_dim
+    description: Staging table for the player dimension
+    columns:
+      - name: sk_player_key
+        description: Surrogate key for the player
+        tests:
+          - unique
+      - name: nk_id
+        description: Id of the player
+        tests:
+          - unique
+      - name: desc_name
+        description: Name of the player
+        tests:
+          - unique
+      - name: desc_hand
+        description: R = right, L = left, U = unknown. For ambidextrous players, this is their serving hand.
+      - name: mtr_year_of_birth
+        description: year that the player was born
+      - name: mtr_height
+        description: height in centimeters
+      - name: desc_ioc
+        description: three letter country code

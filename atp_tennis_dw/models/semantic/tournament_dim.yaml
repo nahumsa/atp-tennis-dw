@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: tournament_dim
+    description: Tournament dimension
+    columns:
+      - name: sk_tournament_key
+        description: Surrogate key for tournament
+        tests:
+          - unique
+      - name: nk_tournament_id
+        description: Id of the torunament
+        tests:
+          - unique
+      - name: desc_tournament_name
+        description: Name of the tournament
+      - name: desc_surface
+        description: Surface that the tournament is played
+      - name: desc_best_of
+        description: Number of sets played
+      - name: dt_tournament_start_date
+        description: Date of the start of the tournament
