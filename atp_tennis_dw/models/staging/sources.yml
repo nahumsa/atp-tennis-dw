@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: raw_data
-    description: Raw dataset ingested from the 11-Seven fuel price API and stored in DuckDB.
+    description: Raw dataset ingested from JeffSackmann's Github.
     schema: raw_data
     tables:
       - name: atp_matches
