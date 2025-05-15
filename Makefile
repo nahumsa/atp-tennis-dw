@@ -22,6 +22,12 @@ load_data: ### Load data for atp matches
 dbt_run: ### Run the DBT project
 	uv run dbt run --project-dir ${DBT_PROJECT_FOLDER}
 
+dbt_generate_docs: ### Generate DBT docs
+	uv run dbt docs generate --project-dir ${DBT_PROJECT_FOLDER}
+
+dbt_serve_docs: ### Serve DBT docs
+	uv run dbt docs serve --project-dir ${DBT_PROJECT_FOLDER}
+
 add_dbt_profile: ### Add DBT profile for this project
 	@echo "Checking if DBT profile already exists..."
 	@if grep -q '^${DBT_PROJECT_FOLDER}:' ${DBT_PROFILE_FOLDER}; then \
