@@ -29,5 +29,5 @@ SELECT
   'serve_games' : l_sv_gms,
   'break_point_saved' : l_bp_saved,
   'break_point_faced' : l_bp_faced,
-  } AS nst_looser_stats
+  } AS nst_loser_stats
 FROM atp_matches
