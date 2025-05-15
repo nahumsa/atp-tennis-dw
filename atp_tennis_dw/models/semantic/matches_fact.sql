@@ -5,7 +5,7 @@ WITH atp_matches AS (
 SELECT
   hash(MD5(CONCAT(winner_name, winner_id))) AS fk_winner_id,
   hash(MD5(CONCAT(loser_name, loser_id))) AS fk_loser_id,
-  minutes,
+  minutes AS mtr_minutes,
   {
   'ace' : w_ace,
   'double_fault' : w_df,
@@ -17,7 +17,7 @@ SELECT
   'serve_games' : w_sv_gms,
   'break_point_saved' : w_bp_saved,
   'break_point_faced' : w_bp_faced,
-  } AS winner_stats,
+  } AS nst_winner_stats,
   {
   'ace' : l_ace,
   'double_fault' : l_df,
@@ -29,5 +29,5 @@ SELECT
   'serve_games' : l_sv_gms,
   'break_point_saved' : l_bp_saved,
   'break_point_faced' : l_bp_faced,
-  } AS looser_stats
+  } AS nst_looser_stats
 FROM atp_matches

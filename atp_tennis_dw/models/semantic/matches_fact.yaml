@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: matches_fact
+    description: Staging table for the player dimension
+    columns:
+      - name: fk_winner_id
+        description: Foreign key for the winner player
+        tests:
+          - unique
+      - name: mtr_minutes
+        description: Number of minutes in a match
+      - name: nst_winner_stats
+        description: Nested fields for winner stats
+        columns:
+          - name: ace
+            description: number of aces
+          - name: df
+            description: number of double faults
+          - name: svpt
+            description: number of serve points
+          - name: 1st_in
+            description: number of first servers made
+          - name: 1st_won
+            description: number of first-servers won
+          - name: 2nd_won
+            description: number of second-servers won
+          - name: sv_gms
+            description: number of serve games
+          - name: bp_saved
+            description: number of break points saved
+          - name: bp_faced
+            description: number of break points faced
+      - name: nst_loser_stats
+        description: Nested fields for loser stats
+        columns:
+          - name: ace
+            description: number of aces
+          - name: df
+            description: number of double faults
+          - name: svpt
+            description: number of serve points
+          - name: 1st_in
+            description: number of first servers made
+          - name: 1st_won
+            description: number of first-servers won
+          - name: 2nd_won
+            description: number of second-servers won
+          - name: sv_gms
+            description: number of serve games
+          - name: bp_saved
+            description: number of break points saved
+          - name: bp_faced
+            description: number of break points faced
