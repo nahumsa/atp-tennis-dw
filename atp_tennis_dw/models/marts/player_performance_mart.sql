@@ -23,8 +23,8 @@ SELECT
     ROUND(AVG(CASE WHEN f.fk_loser_id = p.sk_player_key THEN f.nst_loser_stats.first_serve_won / f.nst_loser_stats.serve_points END), 2) AS avg_loss_first_serve_won_pct,
     ROUND(AVG(CASE WHEN f.fk_winner_id = p.sk_player_key THEN f.nst_winner_stats.second_serve_won / f.nst_winner_stats.serve_points END), 2) AS avg_win_second_serve_won_pct,
     ROUND(AVG(CASE WHEN f.fk_loser_id = p.sk_player_key THEN f.nst_loser_stats.second_serve_won / f.nst_loser_stats.serve_points END), 2) AS avg_loss_second_serve_won_pct,
-    ROUND(AVG(CASE WHEN f.fk_winner_id = p.sk_player_key THEN (f.nst_loser_stats.first_serve_won + f.nst_winner_stats.second_serve_won) / f.nst_winner_stats.serve_points END), 2) AS avg_win_serve_points_won_pct,
-    ROUND(AVG(CASE WHEN f.fk_loser_id = p.sk_player_key THEN (f.nst_loser_stats.first_serve_won + f.nst_winner_stats.second_serve_won) / f.nst_loser_stats.serve_points END), 2) AS avg_loss_serve_points_won_pct,
+    ROUND(AVG(CASE WHEN f.fk_winner_id = p.sk_player_key THEN (f.nst_winner_stats.first_serve_won + f.nst_winner_stats.second_serve_won) / f.nst_winner_stats.serve_points END), 2) AS avg_win_serve_points_won_pct,
+    ROUND(AVG(CASE WHEN f.fk_loser_id = p.sk_player_key THEN (f.nst_loser_stats.first_serve_won + f.nst_loser_stats.second_serve_won) / f.nst_loser_stats.serve_points END), 2) AS avg_loss_serve_points_won_pct,
 FROM
     players_dim p
 LEFT JOIN
