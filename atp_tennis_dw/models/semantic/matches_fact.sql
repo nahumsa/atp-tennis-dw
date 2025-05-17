@@ -6,6 +6,7 @@ SELECT
   hash(MD5(CONCAT(winner_name, winner_id))) AS fk_winner_id,
   hash(MD5(CONCAT(loser_name, loser_id))) AS fk_loser_id,
   minutes AS mtr_minutes,
+  year AS mtr_year,
   {
   'ace' : w_ace,
   'double_fault' : w_df,

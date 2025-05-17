@@ -10,6 +10,8 @@ models:
           - unique
       - name: mtr_minutes
         description: Number of minutes in a match
+      - name: mtr_year
+        description: Year that the match occured
       - name: nst_winner_stats
         description: Nested fields for winner stats
         columns:
