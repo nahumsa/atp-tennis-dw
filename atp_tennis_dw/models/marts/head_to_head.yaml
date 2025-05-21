@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: mart_head_to_head
+    schema: mart
+    description: Mart table for the head to head comparison
+    columns:
+      - name: player1_key
+        description: Key for player 1
+        tests:
+          - unique
+      - name: player2_key
+        description: Key for player 2
+        tests:
+          - unique
+      - name: matches
+        description: Number of matches played between players
+      - name: p1_wins
+        description: Number of matches won by player 1
+      - name: p2_wins
+        description: Number of matches won by player 2
+      - name: average_duration_time
+        description: Average duration of the matches (in minutes)
+      - name: p1_total_aces
+        description: Number of aces by player 1
+      - name: p2_total_aces
+        description: Number of aces by player 2
+      - name: desc_ioc
+        description: three letter country code
