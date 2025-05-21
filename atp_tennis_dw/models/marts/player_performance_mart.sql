@@ -6,6 +6,7 @@ WITH matches_fact AS (
 
 SELECT
     p.sk_player_key,
+    f.nk_tournament_id,
     p.desc_name,
     f.mtr_year,
     COUNT(CASE WHEN f.fk_winner_id = p.sk_player_key THEN 1 END) AS wins,
