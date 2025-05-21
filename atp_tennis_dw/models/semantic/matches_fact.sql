@@ -5,7 +5,7 @@ WITH atp_matches AS (
 SELECT
   hash(MD5(CONCAT(winner_name, winner_id))) AS fk_winner_id,
   hash(MD5(CONCAT(loser_name, loser_id))) AS fk_loser_id,
-  hash(MD5(CONCAT(tourney_name, surface))) AS sk_tournament_key,
+  hash(MD5(CONCAT(tourney_name))) AS fk_tournament_key,
   minutes AS mtr_minutes,
   year AS mtr_year,
   {

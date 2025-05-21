@@ -4,7 +4,7 @@ WITH matches AS (
 
 SELECT
   DISTINCT
-  hash(MD5(CONCAT(tourney_name, surface))) AS sk_tournament_key,
+  hash(MD5(CONCAT(tourney_name))) AS sk_tournament_key,
   tourney_id AS nk_tournament_id,
   tourney_name AS desc_tournament_name,
   surface AS desc_surface,

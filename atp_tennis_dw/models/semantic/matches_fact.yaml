@@ -8,6 +8,14 @@ models:
         description: Foreign key for the winner player
         tests:
           - unique
+      - name: fk_loser_id
+        description: Foreign key for the losing player
+        tests:
+          - unique
+      - name: fk_tournament_key
+        description: Foreign key for the tournament
+        tests:
+          - unique
       - name: mtr_minutes
         description: Number of minutes in a match
       - name: mtr_year

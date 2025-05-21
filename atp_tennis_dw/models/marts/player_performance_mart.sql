@@ -6,7 +6,7 @@ WITH matches_fact AS (
 
 SELECT
     p.sk_player_key,
-    f.nk_tournament_id,
+    f.fk_tournament_key,
     p.desc_name,
     f.mtr_year,
     COUNT(CASE WHEN f.fk_winner_id = p.sk_player_key THEN 1 END) AS wins,
@@ -35,5 +35,5 @@ FROM
 LEFT JOIN
     matches_fact f ON p.sk_player_key = f.fk_winner_id OR p.sk_player_key = f.fk_loser_id
 GROUP BY
-    p.sk_player_key, p.desc_name, f.mtr_year
+    p.sk_player_key, p.desc_name, f.mtr_year, f.fk_tournament_key
 ORDER BY desc_name, mtr_year DESC
