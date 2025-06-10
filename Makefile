@@ -1,5 +1,5 @@
 DBT_PROFILE_FOLDER = ~/.dbt/profiles.yml
-DBT_PROJECT_FOLDER = atp_tennis_dw
+DBT_PROJECT_FOLDER = transform/atp_tennis_dw
 
 # Define colors
 GREEN  := \033[0;32m
