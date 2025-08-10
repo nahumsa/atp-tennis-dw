@@ -47,7 +47,7 @@ def cli() -> argparse.Namespace:
     )
 
     parser.add_argument(
-        "--backend", choices=["duckdb", "motherduck"], default="duckdb"
+        "--env", choices=["dev", "prod"], default="dev"
     )
 
     return parser.parse_args()
@@ -55,9 +55,17 @@ def cli() -> argparse.Namespace:
 
 if __name__ == "__main__":
     args = cli()
+    match args.backend:
+        case "dev":
+            destination = "duckdb"
+        case "prod":
+            destination = "motherduck"
+        case _:
+            raise ValueError(f"invalid environment: {args.backend}")
+
     pipeline = dlt.pipeline(
         pipeline_name="atp_matches_pipeline",
-        destination=args.backend,
+        destination=destination,
         dataset_name="raw_data",
     )
 

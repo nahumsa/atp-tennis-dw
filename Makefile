@@ -1,6 +1,6 @@
 DBT_PROFILE_FOLDER = ~/.dbt/profiles.yml
 DBT_PROJECT_FOLDER = transform/atp_tennis_dw
-BACKEND = duckdb
+ENV = dev
 
 # Define colors
 GREEN  := \033[0;32m
@@ -20,10 +20,10 @@ help:
 
 load_data: ### Load data for atp matches
 	@echo "loading data to ${BACKEND}"
-	uv run load_data/atp_matches.py --backend ${BACKEND}
+	uv run load_data/atp_matches.py --environment ${ENV}
 
 dbt_run: ### Run the DBT project
-	uv run dbt run --project-dir ${DBT_PROJECT_FOLDER}
+	uv run dbt run --project-dir ${DBT_PROJECT_FOLDER} --target ${ENV}
 
 dbt_generate_docs: ### Generate DBT docs
 	uv run dbt docs generate --project-dir ${DBT_PROJECT_FOLDER}
@@ -39,6 +39,10 @@ add_dbt_profile: ### Add DBT profile for this project
 		echo "Appending DBT profile to profiles.yml..."; \
 		echo "atp_tennis_dw:" >> ${DBT_PROFILE_FOLDER}; \
 		echo "  outputs:" >> ${DBT_PROFILE_FOLDER}; \
+		echo "    prod:" >> ${DBT_PROFILE_FOLDER}; \
+		echo "      type: duckdb" >> ${DBT_PROFILE_FOLDER}; \
+		echo "      path: \"md:my_db?motherduck_token={{env_var('MOTHERDUCK_TOKEN')}}\"" >> ${DBT_PROFILE_FOLDER}; \
+		echo "      threads: 1" >> ${DBT_PROFILE_FOLDER}; \
 		echo "    dev:" >> ${DBT_PROFILE_FOLDER}; \
 		echo "      type: duckdb" >> ${DBT_PROFILE_FOLDER}; \
 		echo "      path: atp_matches_pipeline.duckdb" >> ${DBT_PROFILE_FOLDER}; \
