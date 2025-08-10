@@ -64,13 +64,21 @@ make load_data
 motherduck:
 
 ```bash
-make load_data BACKEND=motherduck
+make load_data ENV=prod
 ```
 
 #### Run transformations with dbt
 
+Locally:
+
 ```bash
 make dbt_run
+```
+
+Motherduck:
+
+```bash
+make dbt_run ENV=prod
 ```
 
 ## 📈 Sample Features
@@ -84,5 +92,4 @@ make dbt_run
 
 ## TODO
 
-* [X] Add pipeline to motherduck
 * [ ] Use evidence to visualize data
