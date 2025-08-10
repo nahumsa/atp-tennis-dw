@@ -12,12 +12,12 @@ This project creates a cloud-based data warehouse from historical ATP tennis dat
 
 ## 🧱 Tech Stack
 
-* **Data Warehouse**: DuckDB
+* **Data Warehouse**: DuckDB, [Motherduck](https://motherduck.com/)
 * **Language**: Python 3.10+
 * **Dependency Manager**: [`uv`](https://github.com/astral-sh/uv)
 * **Data Ingestion**: [DLT](DLT)
 * **Transformations**: [dbt](https://www.getdbt.com/)
-* **Dashboards**: [evidence](https://docs.evidence.dev/)
+* **Dashboards (WIP)**: [evidence](https://docs.evidence.dev/)
 
 ## 📊 Data Sources
 
@@ -55,8 +55,16 @@ To run the pipeline you need to have uv installed.
 
 #### Ingest ATP data
 
+Locally:
+
 ```bash
 make load_data
+```
+
+motherduck:
+
+```bash
+make load_data BACKEND=motherduck
 ```
 
 #### Run transformations with dbt
@@ -76,5 +84,5 @@ make dbt_run
 
 ## TODO
 
-* [ ] Add pipeline to motherduck
+* [X] Add pipeline to motherduck
 * [ ] Use evidence to visualize data
