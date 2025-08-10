@@ -1,5 +1,6 @@
 DBT_PROFILE_FOLDER = ~/.dbt/profiles.yml
 DBT_PROJECT_FOLDER = transform/atp_tennis_dw
+BACKEND = duckdb
 
 # Define colors
 GREEN  := \033[0;32m
@@ -18,7 +19,8 @@ help:
 	@echo 'recommended flow load_data -> add_dbt_profile -> dbt_run'
 
 load_data: ### Load data for atp matches
-	uv run load_data/atp_matches.py
+	@echo "loading data to ${BACKEND}"
+	uv run load_data/atp_matches.py --backend ${BACKEND}
 
 dbt_run: ### Run the DBT project
 	uv run dbt run --project-dir ${DBT_PROJECT_FOLDER}
