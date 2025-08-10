@@ -15,6 +15,7 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "  $(YELLOW)%-20s$(NC) %s\n", $$1, $$2}'
 	@echo ""
+	@echo 'recommended flow load_data -> add_dbt_profile -> dbt_run'
 
 load_data: ### Load data for atp matches
 	uv run load_data/atp_matches.py
