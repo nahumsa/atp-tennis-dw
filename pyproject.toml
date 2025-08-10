@@ -10,3 +10,8 @@ dependencies = [
   "dlt[duckdb]>=1.10.0",
   "requests>=2.32.3",
 ]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+]
