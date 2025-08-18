@@ -31,6 +31,11 @@ dbt_generate_docs: ### Generate DBT docs
 dbt_serve_docs: ### Serve DBT docs
 	uv run dbt docs serve --project-dir ${DBT_PROJECT_FOLDER}
 
+evidence_run: ### Create local Evidence Server
+	npm --prefix ./reports install
+	npm --prefix ./reports run sources
+	npm --prefix ./reports run dev
+
 add_dbt_profile: ### Add DBT profile for this project
 	@echo "Checking if DBT profile already exists..."
 	@if grep -q '^${DBT_PROJECT_FOLDER}:' ${DBT_PROFILE_FOLDER}; then \
