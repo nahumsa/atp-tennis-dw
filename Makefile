@@ -20,7 +20,7 @@ help:
 
 load_data: ### Load data for atp matches
 	@echo "loading data to ${BACKEND}"
-	uv run load_data/atp_matches.py --environment ${ENV}
+	uv run load_data/atp_matches.py --env ${ENV}
 
 dbt_run: ### Run the DBT project
 	uv run dbt run --project-dir ${DBT_PROJECT_FOLDER} --target ${ENV}

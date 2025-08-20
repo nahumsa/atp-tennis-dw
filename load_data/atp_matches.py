@@ -14,7 +14,7 @@ from io import StringIO
     write_disposition="replace",
 )
 def atp_matches_data() -> Iterator[Dict]:
-    for year in range(2019, 2024 + 1):
+    for year in range(2000, 2024 + 1):
         # Change this to a logger
         print(f"loading year={year}")
 
@@ -55,7 +55,7 @@ def cli() -> argparse.Namespace:
 
 if __name__ == "__main__":
     args = cli()
-    match args.backend:
+    match args.env:
         case "dev":
             destination = "duckdb"
         case "prod":

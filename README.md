@@ -3,6 +3,8 @@
 A modern data warehouse project built with ATP tennis data to enable rich analytical queries and data products.
 The project includes data ingestion, transformation, and modeling using open data and modern data tooling.
 
+Check the dashboard on [evidence](https://atp-tennis-viz.evidence.app/)!
+
 ## 📌 Project Overview
 
 This project creates a cloud-based data warehouse from historical ATP tennis data. It provides:
@@ -17,7 +19,7 @@ This project creates a cloud-based data warehouse from historical ATP tennis dat
 * **Dependency Manager**: [`uv`](https://github.com/astral-sh/uv)
 * **Data Ingestion**: [DLT](DLT)
 * **Transformations**: [dbt](https://www.getdbt.com/)
-* **Dashboards (WIP)**: [evidence](https://docs.evidence.dev/)
+* **Dashboards**: [evidence](https://docs.evidence.dev/)
 
 ## 📊 Data Sources
 
@@ -79,6 +81,14 @@ Motherduck:
 
 ```bash
 make dbt_run ENV=prod
+```
+
+#### Run evidence
+
+You need to have the motherduck credentials inside `connection.options.yaml`.
+
+```bash
+make evidence_run
 ```
 
 ## 📈 Sample Features
